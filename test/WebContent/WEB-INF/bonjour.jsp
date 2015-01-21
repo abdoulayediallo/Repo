@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,9 +6,25 @@
         <title>Test</title>
     </head>
     <body>
-    	
-        <p><c:forEach items="${ test }" var="contenu" varStatus="status"> </p>
-        <p>N°<c:out value="${status.first }"/> <c:out value="${ contenu }" /></p>
-        <p></c:forEach>
+
+        <c:if test="${ !empty form }">
+        	<p>
+        		<c:out value="${ form.resultat }" />
+        	</p>
+        </c:if>
+        
+        <form method="post" action="bonjour">
+        	<p>
+            	<label for="login">Login : </label>
+            	<input type="text" name="login" id="login" />
+            </p>
+            
+            <p>
+            	<label for="pass">Password : </label>
+            	<input type="password" name="pass" id="pass" />
+            </p>
+            <input type="submit" value="Envoyer"/>
+        </form>
+        
     </body>
 </html>
